@@ -1,21 +1,16 @@
-document.getElementById('input-file').addEventListener('change', handleFile, false);
+const excelFile = '商品订单表.xlsx';
 
-function handleFile(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = function(e) {
-        const data = new Uint8Array(e.target.result);
+fetch(excelFile)
+    .then(response => response.arrayBuffer())
+    .then(data => {
         const workbook = XLSX.read(data, { type: 'array' });
         const firstSheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[firstSheetName];
 
         const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
         processExcelData(jsonData);
-    };
-
-    reader.readAsArrayBuffer(file);
-}
+    })
+    .catch(error => console.error('Error loading Excel file:', error));
 
 function processExcelData(data) {
     const headers = data[0];
