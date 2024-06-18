@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1b1b1b;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    text-align: center;
+    font-size: 30px; /* 调整字体大小 */
+    padding: 10px 20px; /* 调整上下左右的 padding */
+    background: #3a3a3a;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px; /* 调整上下 padding */
+    height: calc(100vh - 120px); /* 调整高度以适应屏幕 */
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    width: 70%; /* 左侧宽度占比 */
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    width: 70%; /* 右侧宽度占比 */
+    height: 100%; /* 让右侧占满屏幕 */
+}
+
+.chart-container {
+    flex: 1;
+    margin: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+#map-container {
+    width: 100%; /* 地图宽度占比 */
+    height: 98%;
+    margin: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+#input-file {
+    display: block;
+    margin: 20px auto;
+}
+
+.right .chart-container {
+    flex: 1;
+    margin: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    height: 100%; /* 让图像占满容器 */
+}
